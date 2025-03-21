@@ -2,10 +2,14 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\COntrollers\PostController;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/posts', [PostController::class, 'index']);
+Route::delete('/posts/{id}', [PostController::class, 'destroy']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
